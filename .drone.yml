@@ -1,0 +1,27 @@
+kind: pipeline
+name: build-node
+
+steps:
+  - name: test_azure_creds
+    image: hashicorp/terraform:light
+    # environment:
+    #   ARM_ACCESS_KEY:
+    #     from_secret: ARM_ACCESS_KEY
+    #   ARM_CLIENT_ID:
+    #     from_secret: ARM_CLIENT_ID
+    #   ARM_CLIENT_SECRET:
+    #     from_secret: ARM_CLIENT_SECRET
+    #   ARM_SUBSCRIPTION_ID:
+    #     from_secret: ARM_SUBSCRIPTION_ID
+    #   ARM_TENANT_ID:
+    #     from_secret: ARM_TENANT_ID
+    #   STORAGE_ACCOUNT:
+    #     from_secret: STORAGE_ACCOUNT
+    commands:
+      - export
+      # - |
+      #   terraform init \
+      #   -backend-config="storage_account_name=$STORAGE_ACCOUNT" \
+      #   -backend-config="key=$DRONE_BRANCH.terraform.tfstate" \
+      # - terraform plan
+      # - terraform apply -auto-approve
